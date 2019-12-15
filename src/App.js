@@ -13,7 +13,7 @@ import Main from './component/Main'
 // =============================
 
 // ExternalAPI-URL Definer
-let apiUrl = 'wss://api.spacexdata.com/v3/launches/';
+let apiUrl = 'http://api.spacexdata.com/v3/launches/';
 let intApiUrl = 'http://turbo-spork-app.herokuapp.com/api/'
 
 
