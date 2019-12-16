@@ -5,8 +5,10 @@
 import React from 'react'
 
 // components
-import Space from './SpaceX'
+// import Space from './SpaceX'
 import Launches from './Launches'
+import MyLaunches from './MyLaunches'
+
 // =============================
 // COMPONENT CLASS
 // =============================
@@ -26,25 +28,12 @@ class Main extends React.Component{
   render (){
     return (
       <div>
-      This is some notess maybe:
-        {this.props.notesArray.map((notes, index) => (
-          <p key={notes.flight_number}>{notes.flight_number} - {notes.notes}</p>
-        ))}
-
-        This is the main section.
-      <Space />
-
-        <div className="row">
-        <div className="col s12 m6">
-
-        {this.props.launchArray.map((grabLaunch) =>
-          <Launches
-            key={grabLaunch.flight_number}
-            launchData={grabLaunch}
-          />
-        )}
-        </div>
-        </div>
+      {this.props.view.page === 'mylaunches'
+      ? <MyLaunches notesArray={this.props.notesArray} />
+      : '' }
+      {this.props.view.page === 'launches'
+      ? <Launches launchArray={this.props.launchArray} />
+      : ''}
       </div>
     )
   }

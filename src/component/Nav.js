@@ -19,11 +19,11 @@ class Nav extends React.Component{
     return (
       <div>
         <nav>
-          <button>Home
+          <button onClick={() => {this.props.handleView('home')}}>Home
           </button>
-          <button>About SpaceX
+          <button onClick={() => {this.props.handleView('launches')}}>SpaceX Launches
           </button>
-          <button>About Team
+          <button onClick={() => {this.props.handleView('mylaunches')}}>My Launches
           </button>
         </nav>
       </div>

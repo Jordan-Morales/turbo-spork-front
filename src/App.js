@@ -53,6 +53,28 @@ class App extends React.Component {
       })
       .catch(err=>console.log(err))
     }
+  handleView = (view) => {
+    let pageTitle = ''
+    switch (view) {
+      case 'home':
+        pageTitle= 'home'
+        break;
+      case 'launches':
+        pageTitle= 'launches'
+        break;
+      case 'mylaunches':
+        pageTitle= 'mylaunches'
+        break;
+      default:
+        break;
+    }
+    this.setState({
+      view: {
+        page: view,
+        pageTitle: pageTitle
+      }
+    })
+  }
   componentDidMount() {
     this.pullLaunches()
     this.pullStuff()
@@ -67,13 +89,16 @@ class App extends React.Component {
     return(
       <div className="container">
 
-        <Nav />
+        <Nav
+        handleView={this.handleView}
+        />
         {/* this is a comment? */}
         <Main
+        view={this.state.view}
+        handleView={this.handleView}
         launchArray={this.state.launchArray}
         notesArray={this.state.notes}
         />
-
 
       </div>
     )
