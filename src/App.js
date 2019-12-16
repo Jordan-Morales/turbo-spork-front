@@ -14,7 +14,7 @@ import Main from './component/Main'
 
 // ExternalAPI-URL Definer
 let apiUrl = 'https://api.spacexdata.com/v3/launches/';
-let intApiUrl = 'https://turbo-spork-app.herokuapp.com/api/launch'
+let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
 
 
 class App extends React.Component {
