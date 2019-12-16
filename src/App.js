@@ -22,6 +22,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       launchArray: [],
+      notes: [],
       view: {
         page: 'home',
         pageTitle: 'on load'
@@ -52,6 +53,28 @@ class App extends React.Component {
       })
       .catch(err=>console.log(err))
     }
+  handleView = (view) => {
+    let pageTitle = ''
+    switch (view) {
+      case 'home':
+        pageTitle= 'home'
+        break;
+      case 'launches':
+        pageTitle= 'launches'
+        break;
+      case 'mylaunches':
+        pageTitle= 'mylaunches'
+        break;
+      default:
+        break;
+    }
+    this.setState({
+      view: {
+        page: view,
+        pageTitle: pageTitle
+      }
+    })
+  }
   componentDidMount() {
     this.pullLaunches()
     this.pullStuff()
@@ -65,11 +88,17 @@ class App extends React.Component {
   render(){
     return(
       <div className="container">
-      This is some notess maybe: {this.state.launch}
-        <Nav />
-        {/* this is a comment? */}
-        <Main launchArray={this.state.launchArray}/>
 
+        <Nav
+        handleView={this.handleView}
+        />
+        {/* this is a comment? */}
+        <Main
+        view={this.state.view}
+        handleView={this.handleView}
+        launchArray={this.state.launchArray}
+        notesArray={this.state.notes}
+        />
 
       </div>
     )

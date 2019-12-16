@@ -9,7 +9,7 @@ import React from 'react'
 // =============================
 // COMPONENT CLASS
 // =============================
-class Launches extends React.Component{
+class MyLaunches extends React.Component{
 
 
 
@@ -18,18 +18,18 @@ class Launches extends React.Component{
 //// ==============
   render (){
     return (
+
       <div className="row">
         <div className="col s12 m6">
-          {this.props.launchArray.map((launchData) => (
-            <div key={launchData.flight_number} className="card blue-grey">
-              Number: {launchData.flight_number} <br/>
-              Mission Name: {launchData.mission_name} <br/>
-              Location: {launchData.launch_site.site_name_long} <br/>
-              Date: {launchData.launch_date_local} <br/>
+          {this.props.notesArray.map((notes) =>
+            <div key={notes.flight_number} className="card blue-grey">
+              Number: {notes.flight_number} <br/>
+              Notes: {notes.notes} <br/>
             </div>
-          ))}
-        </div>
+            )}
       </div>
+    </div>
+
 
     )
   }
@@ -38,4 +38,4 @@ class Launches extends React.Component{
 // =============================
 // EXPORT
 // =============================
-export default Launches
+export default MyLaunches
