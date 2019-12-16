@@ -22,6 +22,7 @@ class App extends React.Component {
     super(props)
     this.state = {
       launchArray: [],
+      notes: [],
       view: {
         page: 'home',
         pageTitle: 'on load'
@@ -65,10 +66,13 @@ class App extends React.Component {
   render(){
     return(
       <div className="container">
-      This is some notess maybe: {this.state.launch}
+
         <Nav />
         {/* this is a comment? */}
-        <Main launchArray={this.state.launchArray}/>
+        <Main
+        launchArray={this.state.launchArray}
+        notesArray={this.state.notes}
+        />
 
 
       </div>
