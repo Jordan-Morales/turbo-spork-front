@@ -13,8 +13,8 @@ import Main from './component/Main'
 // =============================
 
 // ExternalAPI-URL Definer
-let apiUrl = 'https://cors-anywhere.herokuapp.com/https://api.spacexdata.com/v3/launches/';
-// let intApiUrl = 'https://cors-anywhere.herokuapp.com/http://turbo-spork-app.herokuapp.com/api/launches'
+let apiUrl = 'https://api.spacexdata.com/v3/launches/';
+let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
 
 
 class App extends React.Component {
@@ -36,25 +36,25 @@ class App extends React.Component {
         this.setState({
           launchArray: jData
         })
-        // console.log(this.state.launchArray);
+        console.log(this.state.launchArray);
       })
       .catch(err=>console.log(err))
     }
 
-  // pullStuff = () => {
-  //     fetch(`${intApiUrl}`)
-  //     .then(response => response.json())
-  //     .then(jData => {
-  //       this.setState({
-  //         notes: jData
-  //       })
-  //       console.log(this.state.notes);
-  //     })
-  //     .catch(err=>console.log(err))
-  //   }
+  pullStuff = () => {
+      fetch(`${intApiUrl}`)
+      .then(response => response.json())
+      .then(jData => {
+        this.setState({
+          notes: jData
+        })
+        console.log(this.state.notes);
+      })
+      .catch(err=>console.log(err))
+    }
   componentDidMount() {
     this.pullLaunches()
-    // this.pullStuff()
+    this.pullStuff()
   }
 
 
@@ -65,7 +65,7 @@ class App extends React.Component {
   render(){
     return(
       <div className="container">
-      This is some notess maybe: {this.state.notes}
+      This is some notess maybe: {this.state.launch}
         <Nav />
         {/* this is a comment? */}
         <Main launchArray={this.state.launchArray}/>
