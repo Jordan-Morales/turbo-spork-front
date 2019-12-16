@@ -12,7 +12,6 @@ import React from 'react'
 class Launches extends React.Component{
 
 
-
 //// ==============
 //// RENDER
 //// ==============
@@ -22,15 +21,15 @@ class Launches extends React.Component{
         <div className="col s12 m6">
           {this.props.launchArray.map((launchData) => (
             <div key={launchData.flight_number} className="card blue-grey">
-              Number: {launchData.flight_number} <br/>
+              Flight Number: {launchData.flight_number} <br/>
               Mission Name: {launchData.mission_name} <br/>
-              Location: {launchData.launch_site.site_name_long} <br/>
+              Location of Launch: {launchData.launch_site.site_name_long} <br/>
               Date: {launchData.launch_date_local} <br/>
+              <button onClick={()=>{this.props.handleCreate(launchData)}}>LIKE THIS</button>
             </div>
           ))}
         </div>
       </div>
-
     )
   }
 }

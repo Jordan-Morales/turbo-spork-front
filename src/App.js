@@ -80,6 +80,19 @@ class App extends React.Component {
     this.pullStuff()
   }
 
+ handleCreate = (createData) => {
+
+  fetch(`${intApiUrl}/`, {
+    body: JSON.stringify(createData),
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    }
+  }).then(createdPost => {
+    return createdPost.json()
+  }).catch(err => console.log(err))
+}
 
 
 //// ==============
@@ -98,6 +111,7 @@ class App extends React.Component {
         handleView={this.handleView}
         launchArray={this.state.launchArray}
         notesArray={this.state.notes}
+        handleCreate={this.handleCreate}
         />
 
       </div>

@@ -32,7 +32,7 @@ class Main extends React.Component{
       ? <MyLaunches notesArray={this.props.notesArray} />
       : '' }
       {this.props.view.page === 'launches'
-      ? <Launches launchArray={this.props.launchArray} />
+      ? <Launches launchArray={this.props.launchArray} handleCreate={this.props.handleCreate}/>
       : ''}
       </div>
     )
