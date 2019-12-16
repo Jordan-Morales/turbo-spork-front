@@ -14,7 +14,7 @@ import Main from './component/Main'
 
 // ExternalAPI-URL Definer
 let apiUrl = 'https://cors-anywhere.herokuapp.com/https://api.spacexdata.com/v3/launches/';
-// let intApiUrl = 'http://turbo-spork-app.herokuapp.com/api/'
+let intApiUrl = 'http://turbo-spork-app.herokuapp.com/api/'
 
 
 class App extends React.Component {
@@ -41,17 +41,17 @@ class App extends React.Component {
       .catch(err=>console.log(err))
     }
 
-  // pullStuff = () => {
-  //     fetch(`${intApiUrl}`)
-  //     .then(response => response.json())
-  //     .then(jData => {
-  //       this.setState({
-  //         notes: jData
-  //       })
-  //       console.log(this.state.notes);
-  //     })
-  //     .catch(err=>console.log(err))
-  //   }
+  pullStuff = () => {
+      fetch(`${intApiUrl}`)
+      .then(response => response.json())
+      .then(jData => {
+        this.setState({
+          notes: jData
+        })
+        console.log(this.state.notes);
+      })
+      .catch(err=>console.log(err))
+    }
   componentDidMount() {
     this.pullLaunches()
     this.pullStuff()
