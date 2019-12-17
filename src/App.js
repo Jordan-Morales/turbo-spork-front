@@ -73,10 +73,6 @@ class App extends React.Component {
         page: view,
         pageTitle: pageTitle
       },
-      // formInputs: {
-      //   notes: null,
-      //   id: null
-      // }
     })
   }
 
