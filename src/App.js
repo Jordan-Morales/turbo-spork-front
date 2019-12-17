@@ -16,7 +16,6 @@ import Main from './component/Main'
 let apiUrl = 'https://api.spacexdata.com/v3/launches/';
 let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
 
-
 class App extends React.Component {
   constructor(props){
     super(props)
@@ -89,8 +88,10 @@ class App extends React.Component {
       'Accept': 'application/json, text/plain, */*',
       'Content-Type': 'application/json'
     }
-  }).then(createdPost => {
-    return createdPost.json()
+  }).then(createdData => {
+    return createdData.json()
+  }).then(jsonedData => {
+    this.pullStuff()
   }).catch(err => console.log(err))
 }
 
