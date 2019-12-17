@@ -15,7 +15,7 @@ import Main from './component/Main'
 // ExternalAPI-URL Definer
 let apiUrl = 'https://api.spacexdata.com/v3/launches/';
 let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
-let postAPIURL = 'http://turbo-spork-app.herokuapp.com/api/launch/'
+let postAPIURL = 'http://turbo-spork-app.herokuapp.com/api/launch'
 
 class App extends React.Component {
   constructor(props){
@@ -117,9 +117,8 @@ handleUpdate = (updateData) => {
     likes: 1,
     notes: updateData.notes.notes
   }
- fetch(`${postAPIURL}/${data.id}`, {
+ fetch(`${intApiUrl}/${data.id}`, {
    body: JSON.stringify(data),
-   mode: 'no-cors',
    method: 'PUT',
    headers: {
      'Accept': 'application/json, text/plain, */*',
