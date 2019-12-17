@@ -36,7 +36,7 @@ class Form extends React.Component{
       <form onSubmit={(event)=>{this.props.handleUpdate(event, this.state)}}>
 
        Notes: <input type="text" id="notes" onChange={this.handleChange} value={this.state.notes} />
-       <input type="submit"/>
+       <input className="btn waves-effect waves-light"  type="submit"/>
       </form>
     )
   }
