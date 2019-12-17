@@ -131,11 +131,11 @@ console.log(modData);
         'Credentials': 'include',
         'Access-Control-Allow-Origin': '*'
   }
-}).then(response => console.log(response), err => console.log('this iss sthen' , err)).catch(err => console.log('this is catch', err))
+}).then(response => console.log(response), err => console.log('this iss sthen' , err), this.pullStuff()).catch(err => console.log('this is catch', err))
 }
 
-handleDelete = (id) => {
 
+handleDelete = (id) => {
  fetch(`${intApiUrl}/${id}`, {
    method: 'DELETE',
    headers: {

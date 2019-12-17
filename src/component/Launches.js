@@ -21,8 +21,8 @@ class Launches extends React.Component{
           {this.props.launchArray.map((launchData, index) => (
             <div key={index} className="card blue-grey col s12 m4 l4">
               <div className="card-image">
-                <img class="responsive-img" src={launchData.links.mission_patch}/>
-                <a className="btn-floating halfway-fab waves-effect waves-light red hoverable" onClick={()=>{this.props.handleCreate(launchData)}}><i class="material-icons">add</i></a>
+                <img className="responsive-img" src={launchData.links.mission_patch} alt={launchData.mission_name}/>
+                <button className="btn-floating halfway-fab waves-effect waves-light red hoverable" onClick={()=>{this.props.handleCreate(launchData)}}><i className="material-icons">add</i></button>
               </div>
               <div className="card-content">
                 <p>Flight Number: {launchData.flight_number} <br/>
