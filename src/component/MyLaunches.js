@@ -5,23 +5,13 @@
 import React from 'react'
 
 // components
+import Form from './Form'
 
 // =============================
 // COMPONENT CLASS
 // =============================
 class MyLaunches extends React.Component{
-  constructor(props){
-    super(props)
-    this.state = {
-        id: null,
-        notes: ''
-      }
-    }
-    handleChange = (event) => {
-      this.setState({
-        [event.target.id]: event.target.value
-      })
-    }
+
 
 //// ==============
 //// RENDER
@@ -41,13 +31,10 @@ class MyLaunches extends React.Component{
             <button onClick={() => {this.props.handleDelete(notes.id)}}>
             Unlike
             </button>
-
-            <form onSubmit={()=>{this.props.handleUpdate(this.state)}}>
-            <input type="hidden" id={notes.id} onChange={this.handleChange} value={notes.id} />
-             Notes: <input type="text" id="notes" onChange={this.handleChange} value={this.state.notes} />
-             <input type="submit"/>
-            </form>
-            <h2>{this.state.notes}</h2>
+            <Form
+            handleUpdate={this.props.handleUpdate}
+            notes={notes}
+            />
             </div>
 
             )}

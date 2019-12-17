@@ -106,7 +106,9 @@ class App extends React.Component {
 }
 handleUpdate = (updateData) => {
   // event.preventDefault();
+  console.log(updateData);
  fetch(`${postAPIURL}/${updateData.id}`, {
+
    body: JSON.stringify(updateData),
    method: 'PUT',
    headers: {
