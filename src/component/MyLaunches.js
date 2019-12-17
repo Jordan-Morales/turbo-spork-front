@@ -28,7 +28,16 @@ class MyLaunches extends React.Component{
             Location of Launch: {notes.site_name_long} <br/>
             Date: {notes.launch_date_local} <br/>
             Notes: {notes.notes} <br/>
+            <button onClick={() => {this.props.handleDelete(notes.id)}}>
+            Unlike
+            </button>
+            <form onSubmit={()=>{this.props.handleUpdate(notes)}}>
+             Notes: <input type="text"  id="notes"/>
+             <input type="submit"/>
+            </form>
+
             </div>
+
             )}
       </div>
     </div>
