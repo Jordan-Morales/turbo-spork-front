@@ -13,7 +13,12 @@ class Form extends React.Component{
   constructor(props){
     super(props)
     this.state = {
-        id: null,
+        id: this.props.notes.id,
+        flight_number: this.props.notes.flight_number,
+        site_name_long: this.props.notes.site_name_long,
+        likes: this.props.notes.likes,
+        mission_name: this.props.notes.mission_name,
+        launch_date_local: this.props.notes.launch_date_local,
         notes: ''
       }
     }
@@ -29,7 +34,7 @@ class Form extends React.Component{
   render (){
     return (
       <form onSubmit={()=>{this.props.handleUpdate(this.state)}}>
-      <input type="hidden" id={this.props.notes.id} onChange={this.props.handleChange} value={this.props.notes.id} />
+
        Notes: <input type="text" id="notes" onChange={this.handleChange} value={this.state.notes} />
        <input type="submit"/>
       </form>
