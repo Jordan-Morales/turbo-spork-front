@@ -12,17 +12,23 @@ import React from 'react'
 class Launches extends React.Component{
 
 
-
 //// ==============
 //// RENDER
 //// ==============
   render (){
     return (
-      <div className="card blue-grey">
-      Number: {this.props.launchData.flight_number} <br/>
-      Mission Name: {this.props.launchData.mission_name} <br/>
-      Location: {this.props.launchData.launch_site.site_name_long} <br/>
-      Date: {this.props.launchData.launch_date_local} <br/>
+      <div className="row">
+        <div className="col s12 m6">
+          {this.props.launchArray.map((launchData, index) => (
+            <div key={index} className="card blue-grey">
+              Flight Number: {launchData.flight_number} <br/>
+              Mission Name: {launchData.mission_name} <br/>
+              Location of Launch: {launchData.launch_site.site_name_long} <br/>
+              Date: {launchData.launch_date_local} <br/>
+              <button onClick={()=>{this.props.handleCreate(launchData)}}>LIKE THIS</button>
+            </div>
+          ))}
+        </div>
       </div>
     )
   }

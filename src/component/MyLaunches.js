@@ -9,7 +9,8 @@ import React from 'react'
 // =============================
 // COMPONENT CLASS
 // =============================
-class Nav extends React.Component{
+class MyLaunches extends React.Component{
+
 
 
 //// ==============
@@ -17,16 +18,19 @@ class Nav extends React.Component{
 //// ==============
   render (){
     return (
-      <div>
-        <nav>
-          <button onClick={() => {this.props.handleView('home')}}>Home
-          </button>
-          <button onClick={() => {this.props.handleView('launches')}}>SpaceX Launches
-          </button>
-          <button onClick={() => {this.props.handleView('mylaunches')}}>My Launches
-          </button>
-        </nav>
+
+      <div className="row">
+        <div className="col s12 m6">
+          {this.props.notesArray.map((notes, index) =>
+            <div key={index} className="card blue-grey">
+              Number: {notes.flight_number} <br/>
+              Notes: {notes.notes} <br/>
+            </div>
+            )}
       </div>
+    </div>
+
+
     )
   }
 }
@@ -34,4 +38,4 @@ class Nav extends React.Component{
 // =============================
 // EXPORT
 // =============================
-export default Nav
+export default MyLaunches

@@ -15,13 +15,14 @@ import Main from './component/Main'
 // ExternalAPI-URL Definer
 let apiUrl = 'https://api.spacexdata.com/v3/launches/';
 let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
-
+let postAPIURL = 'https://turbo-spork-app.herokuapp.com/api/launch'
 
 class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
       launchArray: [],
+      notes: [],
       view: {
         page: 'home',
         pageTitle: 'on load'
@@ -52,11 +53,58 @@ class App extends React.Component {
       })
       .catch(err=>console.log(err))
     }
+  handleView = (view) => {
+    let pageTitle = ''
+    switch (view) {
+      case 'home':
+        pageTitle= 'home'
+        break;
+      case 'launches':
+        pageTitle= 'launches'
+        break;
+      case 'mylaunches':
+        pageTitle= 'mylaunches'
+        break;
+      default:
+        break;
+    }
+    this.setState({
+      view: {
+        page: view,
+        pageTitle: pageTitle
+      }
+    })
+  }
   componentDidMount() {
     this.pullLaunches()
     this.pullStuff()
   }
 
+ handleCreate = (createData) => {
+   const data = {
+     flight_number: createData.flight_number,
+     mission_name: createData.mission_name,
+     site_name_long: createData.launch_site.site_name_long,
+     launch_date_local: createData.launch_date_local,
+     likes: 0,
+     notes: ''
+   }
+  fetch(`${postAPIURL}`, {
+    body: data,
+    mode: 'no-cors',
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json, text/plain, */*',
+      'Content-Type': 'application/json'
+    }
+  }).then(data => {
+    console.log(data);
+    return data.json()
+  }).then(response => {
+    console.log(response);
+    // this.pullStuff()
+  }).catch(err => console.log(err))
+}
 
 
 //// ==============
@@ -65,11 +113,18 @@ class App extends React.Component {
   render(){
     return(
       <div className="container">
-      This is some notess maybe: {this.state.launch}
-        <Nav />
-        {/* this is a comment? */}
-        <Main launchArray={this.state.launchArray}/>
 
+        <Nav
+        handleView={this.handleView}
+        />
+        {/* this is a comment? */}
+        <Main
+        view={this.state.view}
+        handleView={this.handleView}
+        launchArray={this.state.launchArray}
+        notesArray={this.state.notes}
+        handleCreate={this.handleCreate}
+        />
 
       </div>
     )
