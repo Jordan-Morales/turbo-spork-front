@@ -23,8 +23,11 @@ class MyLaunches extends React.Component{
         <div className="col s12 m6">
           {this.props.notesArray.map((notes, index) =>
             <div key={index} className="card blue-grey">
-              Number: {notes.flight_number} <br/>
-              Notes: {notes.notes} <br/>
+            Flight Number: {notes.flight_number} <br/>
+            Mission Name: {notes.mission_name} <br/>
+            Location of Launch: {notes.site_name_long} <br/>
+            Date: {notes.launch_date_local} <br/>
+            Notes: {notes.notes} <br/>
             </div>
             )}
       </div>

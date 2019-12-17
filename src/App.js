@@ -90,7 +90,7 @@ class App extends React.Component {
      notes: ''
    }
   fetch(`${postAPIURL}`, {
-    body: data,
+    body: JSON.stringify(data),
     mode: 'no-cors',
     method: 'POST',
     headers: {
@@ -99,10 +99,10 @@ class App extends React.Component {
     }
   }).then(data => {
     console.log(data);
-    return data.json()
+    // return data.json()
   }).then(response => {
     console.log(response);
-    // this.pullStuff()
+    this.pullStuff()
   }).catch(err => console.log(err))
 }
 
