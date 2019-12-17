@@ -118,7 +118,7 @@ handleUpdate = (updateData) => {
     notes: updateData.notes.notes
   }
  fetch(`${intApiUrl}/${data.id}`, {
-   body: JSON.stringify(data),
+   body: data,
    method: 'PUT',
    headers: {
      'Accept': 'application/json, text/plain, */*',
