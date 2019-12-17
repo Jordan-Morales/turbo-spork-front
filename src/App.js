@@ -72,9 +72,11 @@ class App extends React.Component {
       view: {
         page: view,
         pageTitle: pageTitle
-      }
+      },
     })
   }
+
+
   componentDidMount() {
     this.pullLaunches()
     this.pullStuff()
@@ -90,7 +92,7 @@ class App extends React.Component {
      notes: ''
    }
   fetch(`${postAPIURL}`, {
-    body: data,
+    body: JSON.stringify(data),
     mode: 'no-cors',
     method: 'POST',
     headers: {
@@ -98,15 +100,35 @@ class App extends React.Component {
       'Content-Type': 'application/json'
     }
   }).then(data => {
-    console.log(data);
-    return data.json()
   }).then(response => {
-    console.log(response);
-    // this.pullStuff()
+    this.pullStuff()
   }).catch(err => console.log(err))
 }
+handleUpdate = (updateData) => {
+  // event.preventDefault();
+ fetch(`${postAPIURL}/${updateData.id}`, {
+   body: JSON.stringify(updateData),
+   method: 'PUT',
+   headers: {
+     'Accept': 'application/json, text/plain, */*',
+     'Content-Type': 'application/json'
+   }
+ }).then(
+ ).catch(err => console.log(err))
+}
 
+handleDelete = (id) => {
 
+ fetch(`${intApiUrl}/${id}`, {
+   method: 'DELETE',
+   headers: {
+     'Accept': 'application/json, text/plain, */*',
+     'Content-Type': 'application/json'
+   }
+ }).then(
+   this.pullStuff()
+ ).catch(err => console.log(err))
+}
 //// ==============
 //// RENDER
 //// ==============
@@ -124,6 +146,8 @@ class App extends React.Component {
         launchArray={this.state.launchArray}
         notesArray={this.state.notes}
         handleCreate={this.handleCreate}
+        handleUpdate={this.handleUpdate}
+        handleDelete={this.handleDelete}
         />
 
       </div>
