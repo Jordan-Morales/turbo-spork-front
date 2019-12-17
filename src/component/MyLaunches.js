@@ -33,6 +33,7 @@ class MyLaunches extends React.Component{
             </button>
             <Form
             handleUpdate={this.props.handleUpdate}
+            handleView={this.props.handleView}
             notes={notes}
             />
             </div>
