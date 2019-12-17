@@ -27,7 +27,7 @@ class Main extends React.Component{
 //// ==============
   render (){
     return (
-      <div>
+      <div className="row">
       {this.props.view.page === 'mylaunches'
       ? <MyLaunches notesArray={this.props.notesArray}
       handleUpdate={this.props.handleUpdate}
