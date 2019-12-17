@@ -29,13 +29,17 @@ class Main extends React.Component{
     return (
       <div className="row">
       {this.props.view.page === 'mylaunches'
-      ? <MyLaunches notesArray={this.props.notesArray}
+      ? <MyLaunches
+      notesArray={this.props.notesArray}
       handleUpdate={this.props.handleUpdate}
       handleDelete={this.props.handleDelete}
+      handleView={this.props.handleView}
       />
       : '' }
       {this.props.view.page === 'launches'
-      ? <Launches launchArray={this.props.launchArray} handleCreate={this.props.handleCreate}/>
+      ? <Launches
+      launchArray={this.props.launchArray}
+      handleCreate={this.props.handleCreate}/>
       : ''}
       </div>
     )

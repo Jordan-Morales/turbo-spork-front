@@ -109,15 +109,6 @@ handleUpdate = (event, updateData) => {
   event.preventDefault();
   console.log(updateData);
   console.log(updateData.id);
-//   const data = {
-//     id: updateData.id,
-//     flight_number: updateData.flight_number,
-//     mission_name: updateData.mission_name,
-//     site_name_long: updateData.site_name_long,
-//     launch_date_local: updateData.launch_date_local,
-//     likes: 1,
-//     notes: updateData.notes.notes
-//   }
 
 console.log(proxyURL + postAPIURL + '/' + updateData.id);
 let modData= JSON.stringify(updateData);
@@ -131,9 +122,9 @@ console.log(modData);
         'Credentials': 'include',
         'Access-Control-Allow-Origin': '*'
   }
-}).then(response => console.log(response), err => console.log('this iss sthen' , err), this.pullStuff()).catch(err => console.log('this is catch', err))
+}).then(updatedData => this.handleView('mylaunches'), this.pullStuff())
+.catch(err => console.log('this is catch', err))
 }
-
 
 handleDelete = (id) => {
  fetch(`${intApiUrl}/${id}`, {
