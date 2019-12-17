@@ -19,8 +19,8 @@ class Launches extends React.Component{
     return (
       <div className="row">
         <div className="col s12 m6">
-          {this.props.launchArray.map((launchData) => (
-            <div key={launchData.flight_number} className="card blue-grey">
+          {this.props.launchArray.map((launchData, index) => (
+            <div key={index} className="card blue-grey">
               Flight Number: {launchData.flight_number} <br/>
               Mission Name: {launchData.mission_name} <br/>
               Location of Launch: {launchData.launch_site.site_name_long} <br/>
