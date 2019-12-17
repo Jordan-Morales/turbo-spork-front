@@ -31,7 +31,8 @@ class Main extends React.Component{
       {this.props.view.page === 'mylaunches'
       ? <MyLaunches notesArray={this.props.notesArray}
       handleUpdate={this.props.handleUpdate}
-      handleDelete={this.props.handleDelete}/>
+      handleDelete={this.props.handleDelete}
+      />
       : '' }
       {this.props.view.page === 'launches'
       ? <Launches launchArray={this.props.launchArray} handleCreate={this.props.handleCreate}/>
