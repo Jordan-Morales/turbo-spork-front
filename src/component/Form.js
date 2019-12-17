@@ -33,14 +33,8 @@ class Form extends React.Component{
 //// ==============
   render (){
     return (
-<<<<<<< HEAD
-      <form onSubmit={()=>{this.props.handleUpdate(this.state.notes)}}>
-      <input type="hidden" id={this.props.notes.id} onChange={this.props.handleChange} value={this.props.notes.id} />
-=======
       <form onSubmit={()=>{this.props.handleUpdate(this.state)}}>
-
->>>>>>> 4fbcededbeade5cf68c661c0043d76a3be6153c8
-       Notes: <input type="text" id="notes" onChange={this.handleChange} value={this.state.notes} />
+     Notes: <input type="text" id="notes" onChange={this.handleChange} value={this.state.notes} />
        <input type="submit"/>
       </form>
     )
