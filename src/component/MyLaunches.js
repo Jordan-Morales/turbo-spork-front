@@ -21,7 +21,8 @@ class MyLaunches extends React.Component{
 
       <>
       {this.props.notesArray.map((notes, index) => (
-        <div key={index} className="card blue-grey col s12 m4 l4">
+        <div key={index}  className="col s12 m4 cardFixer">
+        <div key={index} className="card blue-grey">
           <div className="card-image">
             <img className="responsive-img" src={this.props.launchArray[index].links.mission_patch} alt={this.props.launchArray.mission_name}/>
             <button className="btn-floating halfway-fab waves-effect waves-light red hoverable" onClick={() => {this.props.handleDelete(notes.id)}}><i className="material-icons">remove</i></button>
@@ -37,6 +38,7 @@ class MyLaunches extends React.Component{
             notes={notes}
             />
           </div>
+        </div>
         </div>
       ))}
       </>

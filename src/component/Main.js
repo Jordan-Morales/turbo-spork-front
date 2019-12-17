@@ -28,6 +28,12 @@ class Main extends React.Component{
   render (){
     return (
       <div className="row">
+      {this.props.view.page === 'home'
+      ? <div className="full white-text">
+        <h2>Welcome to our SpaceX Data Site</h2>
+        <p>Here you can review your favorite launches and see information about each launch. Did you know SpaceX first launch was in 2006?</p>
+        </div>
+        : ''}
       {this.props.view.page === 'mylaunches'
       ? <MyLaunches
       notesArray={this.props.notesArray}
@@ -36,7 +42,7 @@ class Main extends React.Component{
       handleDelete={this.props.handleDelete}
       handleView={this.props.handleView}
       />
-      : '' }
+      : ''}
       {this.props.view.page === 'launches'
       ? <Launches
       launchArray={this.props.launchArray}

@@ -18,12 +18,12 @@ class Nav extends React.Component{
   render (){
     return (
       <div>
-        <nav>
-          <button onClick={() => {this.props.handleView('home')}}>Home
+        <nav className="black center btnMargin">
+          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('home')}}>Home
           </button>
-          <button onClick={() => {this.props.handleView('launches')}}>SpaceX Launches
+          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('launches')}}>SpaceX Launches
           </button>
-          <button onClick={() => {this.props.handleView('mylaunches')}}>My Launches
+          <button className="waves-effect waves-light btn" onClick={() => {this.props.handleView('mylaunches')}}>My Launches
           </button>
         </nav>
       </div>

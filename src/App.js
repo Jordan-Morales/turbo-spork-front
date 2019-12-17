@@ -142,7 +142,7 @@ handleDelete = (id) => {
 //// ==============
   render(){
     return(
-      <div className="container">
+      <div className="container grey darken-3">
 
         <Nav
         handleView={this.handleView}

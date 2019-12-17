@@ -53,3 +53,7 @@
   height: 180px;
   overflow: scroll;
 }
+
+.center {
+  text-align: center;
+}
