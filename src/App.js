@@ -16,6 +16,7 @@ import Main from './component/Main'
 let apiUrl = 'https://api.spacexdata.com/v3/launches/';
 let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
 let postAPIURL = 'https://turbo-spork-app.herokuapp.com/api/launch'
+let proxyURL = 'https://cors-anywhere.herokuapp.com/'
 
 class App extends React.Component {
   constructor(props){
@@ -104,30 +105,33 @@ class App extends React.Component {
     this.pullStuff()
   }).catch(err => console.log(err))
 }
-handleUpdate = (updateData) => {
-  // event.preventDefault();
+handleUpdate = (event, updateData) => {
+  event.preventDefault();
   console.log(updateData);
   console.log(updateData.id);
-  const data = {
-    id: updateData.id,
-    flight_number: updateData.flight_number,
-    mission_name: updateData.mission_name,
-    site_name_long: updateData.notes.site_name_long,
-    launch_date_local: updateData.launch_date_local,
-    likes: 1,
-    notes: updateData.notes.notes
+//   const data = {
+//     id: updateData.id,
+//     flight_number: updateData.flight_number,
+//     mission_name: updateData.mission_name,
+//     site_name_long: updateData.site_name_long,
+//     launch_date_local: updateData.launch_date_local,
+//     likes: 1,
+//     notes: updateData.notes.notes
+//   }
+
+console.log(proxyURL + postAPIURL + '/' + updateData.id);
+let modData= JSON.stringify(updateData);
+console.log(modData);
+ fetch((proxyURL + postAPIURL + '/' + updateData.id), {
+      body: modData,
+      method: 'PUT',
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'Credentials': 'include',
+        'Access-Control-Allow-Origin': '*'
   }
- fetch(`${intApiUrl}/${data.id}`, {
-   body: data,
-   method: 'PUT',
-   headers: {
-     'Accept': 'application/json, text/plain, */*',
-     'Content-Type': 'application/json'
-   }
- }).then(data =>
- console.log(data))
- .then()
- .catch(err => console.log(err))
+}).then(response => console.log(response), err => console.log('this iss sthen' , err)).catch(err => console.log('this is catch', err))
 }
 
 handleDelete = (id) => {
