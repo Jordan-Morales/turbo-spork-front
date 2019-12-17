@@ -15,7 +15,7 @@ import Main from './component/Main'
 // ExternalAPI-URL Definer
 let apiUrl = 'https://api.spacexdata.com/v3/launches/';
 let intApiUrl = 'https://cors-anywhere.herokuapp.com/https://turbo-spork-app.herokuapp.com/api/launch'
-let postAPIURL = 'https://turbo-spork-app.herokuapp.com/api/launch'
+let postAPIURL = 'http://turbo-spork-app.herokuapp.com/api/launch'
 
 class App extends React.Component {
   constructor(props){
@@ -72,9 +72,11 @@ class App extends React.Component {
       view: {
         page: view,
         pageTitle: pageTitle
-      }
+      },
     })
   }
+
+
   componentDidMount() {
     this.pullLaunches()
     this.pullStuff()
@@ -98,15 +100,48 @@ class App extends React.Component {
       'Content-Type': 'application/json'
     }
   }).then(data => {
-    console.log(data);
-    // return data.json()
   }).then(response => {
-    console.log(response);
     this.pullStuff()
   }).catch(err => console.log(err))
 }
+handleUpdate = (updateData) => {
+  // event.preventDefault();
+  console.log(updateData);
+  console.log(updateData.id);
+  const data = {
+    id: updateData.id,
+    flight_number: updateData.flight_number,
+    mission_name: updateData.mission_name,
+    site_name_long: updateData.notes.site_name_long,
+    launch_date_local: updateData.launch_date_local,
+    likes: 1,
+    notes: updateData.notes.notes
+  }
+ fetch(`${intApiUrl}/${data.id}`, {
+   body: JSON.stringify(data),
+   method: 'PUT',
+   headers: {
+     'Accept': 'application/json, text/plain, */*',
+     'Content-Type': 'application/json'
+   }
+ }).then(data =>
+ console.log(data))
+ .then()
+ .catch(err => console.log(err))
+}
 
+handleDelete = (id) => {
 
+ fetch(`${intApiUrl}/${id}`, {
+   method: 'DELETE',
+   headers: {
+     'Accept': 'application/json, text/plain, */*',
+     'Content-Type': 'application/json'
+   }
+ }).then(
+   this.pullStuff()
+ ).catch(err => console.log(err))
+}
 //// ==============
 //// RENDER
 //// ==============
@@ -124,6 +159,8 @@ class App extends React.Component {
         launchArray={this.state.launchArray}
         notesArray={this.state.notes}
         handleCreate={this.handleCreate}
+        handleUpdate={this.handleUpdate}
+        handleDelete={this.handleDelete}
         />
 
       </div>

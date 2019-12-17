@@ -5,12 +5,12 @@
 import React from 'react'
 
 // components
+import Form from './Form'
 
 // =============================
 // COMPONENT CLASS
 // =============================
 class MyLaunches extends React.Component{
-
 
 
 //// ==============
@@ -28,7 +28,15 @@ class MyLaunches extends React.Component{
             Location of Launch: {notes.site_name_long} <br/>
             Date: {notes.launch_date_local} <br/>
             Notes: {notes.notes} <br/>
+            <button onClick={() => {this.props.handleDelete(notes.id)}}>
+            Unlike
+            </button>
+            <Form
+            handleUpdate={this.props.handleUpdate}
+            notes={notes}
+            />
             </div>
+
             )}
       </div>
     </div>
