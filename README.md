@@ -1,9 +1,9 @@
 # turbo-spork React Front
 by Zach Donner, Jordan Morales
 
-Live Application - https://turbo-spork-react.herokuapp.com/
-PHP Backend Github - https://github.com/Jordan-Morales/turbo-spork
-Live DB - http://turbo-spork-app.herokuapp.com/api/launch
+- Live Application - https://turbo-spork-react.herokuapp.com/
+- PHP Backend Github - https://github.com/Jordan-Morales/turbo-spork
+- Live DB - http://turbo-spork-app.herokuapp.com/api/launch
 
 ## Wireframes
 
