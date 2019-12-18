@@ -122,8 +122,7 @@ console.log(modData);
         'Credentials': 'include',
         'Access-Control-Allow-Origin': '*'
   }
-}).then(updatedData => {this.handleView('mylaunches')
-this.pullStuff()})
+}).then(updatedData => this.handleView('mylaunches'), this.pullStuff())
 .catch(err => console.log('this is catch', err))
 }
 
