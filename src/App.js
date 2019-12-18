@@ -27,6 +27,9 @@ class App extends React.Component {
       view: {
         page: 'home',
         pageTitle: 'on load'
+      },
+      formInputs : {
+        notes: null
       }
     }
   }
@@ -56,6 +59,9 @@ class App extends React.Component {
     }
   handleView = (view) => {
     let pageTitle = ''
+    let formInputs = {
+      notes: '',
+    }
     switch (view) {
       case 'home':
         pageTitle= 'home'
@@ -74,6 +80,7 @@ class App extends React.Component {
         page: view,
         pageTitle: pageTitle
       },
+      formInputs : formInputs
     })
   }
 
@@ -156,6 +163,7 @@ handleDelete = (id) => {
         handleCreate={this.handleCreate}
         handleUpdate={this.handleUpdate}
         handleDelete={this.handleDelete}
+        formInputs={this.state.formInputs}
         />
 
       </div>

@@ -52,6 +52,7 @@ class Main extends React.Component{
       handleUpdate={this.props.handleUpdate}
       handleDelete={this.props.handleDelete}
       handleView={this.props.handleView}
+      formInputs={this.props.formInputs}
       />
       : ''}
       {this.props.view.page === 'launches'

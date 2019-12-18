@@ -36,6 +36,7 @@ class MyLaunches extends React.Component{
             <Form
             handleUpdate={this.props.handleUpdate}
             notes={notes}
+            formInputs={this.props.formInputs}
             />
           </div>
         </div>
