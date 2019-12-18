@@ -32,7 +32,18 @@ class Main extends React.Component{
       ? <div className="full white-text">
         <h2>Welcome to our SpaceX Data Site</h2>
         <p>Here you can review your favorite launches and see information about each launch. Did you know SpaceX first launch was in 2006?</p>
+        <br/>
+        <br/>
+        <br/>
+        <footer>
+        This is a General Assembly Group Project by:<br/><br/>
+        <a href="https://github.com/Jordan-Morales/" className="white-text">Jordan Morales <ion-icon name="logo-github" size="large" ></ion-icon></a>
+        <br/><br/>
+        <a href="https://github.com/KB-Z" className="white-text">Zach Donner <ion-icon name="logo-github" size="large" ></ion-icon></a>
+
+        </footer>
         </div>
+
         : ''}
       {this.props.view.page === 'mylaunches'
       ? <MyLaunches
