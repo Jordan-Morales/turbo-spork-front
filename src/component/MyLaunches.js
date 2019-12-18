@@ -24,7 +24,7 @@ class MyLaunches extends React.Component{
         <div key={index}  className="col s12 m4 cardFixer">
         <div key={index} className="card blue-grey">
           <div className="card-image">
-            <img className="responsive-img" src={this.props.launchArray[index].links.mission_patch} alt={this.props.launchArray.mission_name}/>
+            <img className="responsive-img" src={this.props.launchArray[notes.id].links.mission_patch} alt={this.props.launchArray[notes.id].mission_name}/>
             <button className="btn-floating halfway-fab waves-effect waves-light red hoverable" onClick={() => {this.props.handleDelete(notes.id)}}><i className="material-icons">remove</i></button>
           </div >
           <div className="card-content">
