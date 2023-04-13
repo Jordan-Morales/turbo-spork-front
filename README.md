@@ -47,4 +47,4 @@ We wanted to design an app that allowed you to view all the launches that SpaceX
 - Future goal to allow filtering of data by location or other parameters.
 
 ##New Challenges
-- Rework code for Heroku-20 or Heroku-22
+- Rework code for Heroku-20 or Heroku-22 -- currently on Heroku-18
