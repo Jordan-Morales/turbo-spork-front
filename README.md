@@ -45,3 +45,6 @@ We wanted to design an app that allowed you to view all the launches that SpaceX
 ##Unsolved Problems / Challenges
 - Some issues with re-rendering the view after form change are still present.
 - Future goal to allow filtering of data by location or other parameters.
+
+##New Challenges
+- Rework code for Heroku-20 or Heroku-22
